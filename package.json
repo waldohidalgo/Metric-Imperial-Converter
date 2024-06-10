@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Metric / Imperial Unit Converter",
   "main": "server.js",
+  "author": "Waldo Hidalgo Oyarce",
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
@@ -19,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/freeCodeCamp/boilerplate-project-metricimpconverter"
+    "url": "https://github.com/waldohidalgo/Metric-Imperial-Converter"
   },
   "keywords": [
     "node",
