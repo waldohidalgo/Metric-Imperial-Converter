@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+code {
+  background-color: whitesmoke;
+  font-size: 1.25rem;
+}
+.description_code {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+section,
+header {
+  margin: 50px;
+}
+#title {
+  text-align: center;
+  text-decoration: underline;
+}
+.center {
+  text-align: center;
+}
+.separator {
+  width: 80%;
+  height: 3px;
+  background-color: black;
+  margin-inline: auto;
+}
+.description {
+  line-height: 1.5rem;
+  text-align: justify;
+}
+main {
+  max-width: 800px;
+  margin-inline: auto;
+}
+#convertForm {
+  text-align: center;
+}
+#convertField {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  max-width: 200px;
+}
+#convert,
+#reset {
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  border: 1px solid black;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+#convert:hover {
+  background-color: black;
+  color: white;
+}
+
+#reset:hover {
+  background-color: blue;
+  color: white;
+}
+#result {
+  text-align: center;
+  font-weight: 700;
+}
+
+#jsonResult {
+  word-wrap: break-word;
+}
+#requirements {
+  margin-top: 2rem;
+}
+#requirements img {
+  width: 100%;
+  max-width: 700px;
+  margin-inline: auto;
+}

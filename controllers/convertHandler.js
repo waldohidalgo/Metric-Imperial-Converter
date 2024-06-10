@@ -5,9 +5,7 @@ function ConvertHandler() {
 
     const input = inputValue.toLowerCase();
     const index = input.search(/[a-z]/);
-    if (index === -1) {
-      return;
-    }
+
     const value = input.slice(0, index); // contiene numeros
     const unit = input.slice(index); // contiene unidades
     if (["gal", "l", "lbs", "kg", "mi", "km"].includes(unit)) {
@@ -90,19 +88,21 @@ function ConvertHandler() {
 
     result = initNum * numeroFactorConversion[initUnit];
 
-    return result.toFixed(5);
+    return +result.toFixed(5);
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
-    const unitInitSpellOut = this.spellOutUnit(initUnit);
-    const unitReturnSpellOut = this.spellOutUnit(returnUnit);
+    const unitInitSpellOut =
+      initNum > 1
+        ? this.spellOutUnit(initUnit) + "s"
+        : this.spellOutUnit(initUnit);
+    const unitReturnSpellOut =
+      returnNum > 1
+        ? this.spellOutUnit(returnUnit) + "s"
+        : this.spellOutUnit(returnUnit);
     let result;
 
-    result = `${initNum} ${
-      initNum > 1 ? unitInitSpellOut + "s" : unitInitSpellOut
-    } converts to ${returnNum} ${
-      returnNum > 1 ? unitReturnSpellOut + "s" : unitReturnSpellOut
-    }`;
+    result = `${initNum} ${unitInitSpellOut} converts to ${returnNum} ${unitReturnSpellOut}`;
 
     return result;
   };

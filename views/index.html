@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Metric/Imperial Converter</title>
     <meta
@@ -9,49 +9,105 @@
     <link
       id="favicon"
       rel="icon"
-      href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png"
+      href="./public/images/favicon.ico"
       type="image/x-icon"
     />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./public/style.css" />
+    <link rel="stylesheet" href="./public/css/style.css" />
+    <link rel="stylesheet" href="./public/css/footer/styles.css" />
   </head>
   <body>
     <header>
-      <h1>Metric/Imperial Converter</h1>
+      <h1 id="title">Metric/Imperial Converter</h1>
     </header>
-    <hr style="margin: 50px" />
-    <section>
-      <h3>Example usage</h3>
-      <code>/api/convert?input=4gal</code><br />
-      <code>/api/convert?input=1/2km</code><br />
-      <code>/api/convert?input=5.4/3lbs</code><br />
-      <code>/api/convert?input=kg</code><br />
-      <h3>Example return</h3>
-      <code
-        >{ initNum: 3.1, initUnit: 'mi', returnNum: 4.98895, returnUnit: 'km',
-        string: '3.1 miles converts to 4.98895 kilometers' }</code
-      >
-    </section>
-    <hr style="margin: 50px" />
-    <section>
-      <div id="testui">
-        <h3 style="text-align: left">Front-End</h3>
-        <form id="convertForm" class="border">
-          <input
-            type="text"
-            id="convertField"
-            name="input"
-            placeholder="3.1mi"
-            style="width: 200px"
+    <div class="separator"></div>
+    <main>
+      <section>
+        <article>
+          <h3 class="center">Example Usage</h3>
+          <p class="description">
+            In the URL path of this page, enter the query parameter
+            <strong>input</strong> with some integer, decimal or fraction
+            followed by one of the following units: <strong>gal</strong>,
+            <strong>lbs</strong>, <strong>mi</strong>,
+            <strong>l</strong> (litre), <strong>kg</strong>, or
+            <strong>km</strong>. The server responds with the conversion of
+            units either from metric units to imperial units or from imperial
+            units to metric units respectively.
+          </p>
+          <p class="center description_code">
+            <code>/api/convert?input=4gal</code>
+            <code>/api/convert?input=1/2km</code>
+            <code>/api/convert?input=5.4/3lbs</code>
+            <code>/api/convert?input=kg</code>
+          </p>
+        </article>
+        <article style="margin-top: 3rem">
+          <h3 class="center">Example Server Response</h3>
+          <p class="center">
+            <code
+              >{ initNum: 3.1, initUnit: 'mi', returnNum: 4.98895, returnUnit:
+              'km', string: '3.1 miles converts to 4.98895 kilometers' }</code
+            >
+          </p>
+        </article>
+      </section>
+      <div class="separator"></div>
+      <section>
+        <div id="testui">
+          <h3 class="center">Front-End</h3>
+          <p class="center de">
+            In the following form you can enter the input here instead of
+            entering it in the URL. Clicking on the convert button displays a
+            conversion message and a stringified object below the form.
+          </p>
+          <form id="convertForm" class="border">
+            <input
+              type="text"
+              id="convertField"
+              name="input"
+              placeholder="3.1mi"
+            />
+            <input id="convert" type="submit" value="Convert!" />
+            <button id="reset" type="reset">Reset</button>
+          </form>
+          <p id="result"></p>
+          <p class="center"><code id="jsonResult"></code></p>
+        </div>
+      </section>
+      <div class="separator"></div>
+      <section id="tests">
+        <h3 class="center">Tests</h3>
+        <d class="description">
+          Below I show the project requirements met with each of the tests
+          passed:</d
+        >
+        <div id="requirements">
+          <img
+            src="./public/images/requisitos.webp"
+            alt="project requirements"
           />
-          <input id="convert" type="submit" value="Convert!" />
-        </form>
-        <p id="result"></p>
-        <code id="jsonResult"></code>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" translate="no">
+      <div class="footer_contenido">
+        <div translate="no" id="footer_tag">Developed by:</div>
+
+        <div class="logo">
+          <a
+            href="https://linktr.ee/waldohidalgo"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./public/images/logo_waldo.png" alt="logo waldo" />
+          </a>
+        </div>
       </div>
-    </section>
+    </footer>
     <!-- Your web-app is https, so your scripts need to be too -->
     <script
       src="https://code.jquery.com/jquery-2.2.1.min.js"
@@ -74,12 +130,16 @@
               }),
             });
             const data = await response.json();
-            console.log(data);
-            // $("#result").text(data.string || data);
-            // $("#jsonResult").text(JSON.stringify(data));
+            $("#result").text(data.string || data.error);
+            $("#jsonResult").text(JSON.stringify(data));
           } catch (error) {
             console.log(error);
           }
+        });
+
+        $("#reset").click(function () {
+          $("#result").text("");
+          $("#jsonResult").text("");
         });
       });
     </script>

@@ -5,9 +5,9 @@
   "main": "server.js",
   "author": "Waldo Hidalgo Oyarce",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js",
-    "test": "mocha ./tests/ --ui tdd"
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "test": "mocha ./api/tests/ --ui tdd"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

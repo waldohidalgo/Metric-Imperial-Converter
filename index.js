@@ -9,7 +9,7 @@ require("dotenv").config();
 
 const apiRoutes = require("./routes/api.js");
 const fccTestingRoutes = require("./routes/fcctesting.js");
-const runner = require("./test-runner");
+const runner = require("./test-runner.js");
 
 let app = express();
 
