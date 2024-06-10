@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Index page (static HTML)
 app.route("/").get(function (req, res) {
-  res.sendFile(path.resolve("views", "index.html"));
+  res.sendFile(path.resolve("api", "views", "index.html"));
 });
 
 //For FCC testing purposes

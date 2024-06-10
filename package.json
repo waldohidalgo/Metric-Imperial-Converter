@@ -5,8 +5,8 @@
   "main": "server.js",
   "author": "Waldo Hidalgo Oyarce",
   "scripts": {
-    "start": "node index.js",
-    "dev": "node --watch index.js",
+    "start": "node api/index.js",
+    "dev": "node --watch api/index.js",
     "test": "mocha ./api/tests/ --ui tdd"
   },
   "dependencies": {
