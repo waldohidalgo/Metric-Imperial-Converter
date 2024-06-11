@@ -48,6 +48,7 @@ main {
   border: 1px solid black;
   border-radius: 5px;
   max-width: 200px;
+  margin-bottom: 1rem;
 }
 #convert,
 #reset {

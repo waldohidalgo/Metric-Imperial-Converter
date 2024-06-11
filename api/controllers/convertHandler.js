@@ -25,6 +25,9 @@ function ConvertHandler() {
       if (numerator === 0 && denominator === 0) {
         return;
       }
+      if (denominator === 0) {
+        return;
+      }
       this.numero = (numerator / denominator).toFixed(5);
     }
   };
